@@ -10,6 +10,10 @@ On ATmega328p MCU, I2C pinouts are as followed.
 - SDA: PC4 (A4 - Analog input 4)
 - SCL: PC5 (A5 - Analog input 5)
 
+On ATmega2560 MCU, I2C pinouts are as followed.
+- SDA: PD1 (D20 - Digital I/O 20)
+- SCL: PD0 (D21 - Digital I/O 21)
+
 These two pins are needed pull-up resistor with Vcc (5V). Simply used 1 kOhm resistor, or calculate minimum or maximum resistance based on Vcc and bus frequency.
 
 In this sketch, it doesn't need to connect with pull-up resistor because these two pins are internally pull-up with source code. Simply hookup with SCL and SDA pins directly to the slave device.
