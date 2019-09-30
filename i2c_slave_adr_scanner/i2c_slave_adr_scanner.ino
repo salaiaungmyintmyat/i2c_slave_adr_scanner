@@ -13,8 +13,9 @@
     **Notes - Don't forget to check MCU clock if another Arduino board is used.**
     **        (e.g. Pro Mini 3.3v, 8MHz)                                       **
     *****************************************************************************
-
-    Date: 16 Sep 2019
+    !!UPDATED: Convert to 7-bit word address for searching slave address.  
+    
+    Date: 30 Sep 2019
     
     Written by 
     Salai Aung Myint Myat
@@ -43,6 +44,7 @@ void loop() {
   }
 
   if (Error == 0) {               // Print out that address number
+    address = (address >> 1);     // Convert 7-bit addressing
     Serial.print("Found at = 0x");
     Serial.println(address, HEX);
   }

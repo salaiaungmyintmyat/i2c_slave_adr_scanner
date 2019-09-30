@@ -13,6 +13,13 @@
   Notes: I2C pinouts in ATmega2560(Arduino Mega Board),
           SDA = PD1 (digital pin 20)
           SCL = PD0 (digital pin 21)
+
+  UPDATED: Convert to 7-bit word address for searching slave address.
+  
+  Date: 30 Sep 2019
+
+  Written By
+  Salai Aung Myint Myat
 */
 
 #define F_CPU   16000000UL  // 16 MHz
@@ -114,7 +121,7 @@ void i2cMaster_Start(void)
 }
 
 // 2. Send Slave Address
-void i2cMaster_Adr_Write(unsigned char Addr)
+void i2cMaster_Adr_Write(uint8_t Addr)
 {
   /*** If there is error code, then out of the loop ***/
   if (MasterTX_Error > 0) return 0;
@@ -150,7 +157,7 @@ void i2cMaster_Adr_Write(unsigned char Addr)
 }
 
 // 3. Send data to slave
-void i2cMaster_Data_Write(unsigned char Data)
+void i2cMaster_Data_Write(uint8_t Data)
 {
   /*** If there is error code, then out of the loop ***/
   if (MasterTX_Error > 0) return 0;
